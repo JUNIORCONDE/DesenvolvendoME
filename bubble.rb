@@ -1,3 +1,5 @@
+#https://chat.openai.com/share/fb272f8d-9dc5-4b36-a208-78565cdd893b
+
 def bubble_sort(array)
   n = array.length
 
