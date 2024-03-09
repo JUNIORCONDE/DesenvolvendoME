@@ -1,0 +1,11 @@
+Videos ensinando como comitar
+https://www.youtube.com/watch?v=PZhnF6e4jJQ
+
+
+COMMANDOS PARA FAZER COMMIT, PELO TERMINAL VSCODE LINUX
+
+git add Git GitHub.txt
+
+git commit -m up
+
+git push
