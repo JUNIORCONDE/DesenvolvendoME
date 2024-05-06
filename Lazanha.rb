@@ -12,3 +12,6 @@ puts "Há #{DAYS_IN_WEEK} dias na semana."
 Lasagna = Lasagna.new
 
 EXPECTED_MINUTES_IN_OVEN = 40
+
+
+# teste guit configuração no escritório contabilidade
