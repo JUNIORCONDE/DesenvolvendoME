@@ -30,9 +30,8 @@ class RomanNumerals
 end
 
 # Exemplos de uso
-# puts RomanNumerals.roman_to_integer('III')    # Saída: 3
-# puts RomanNumerals.roman_to_integer('LVIII')  # Saída: 58
-# uts RomanNumerals.roman_to_integer('MCMXCIV') # Saída: 1994
+puts "Numeros Romanos I / V / X / L / C / D / M - Digitar em Letras caixa Alta"
+
 
 # Entrada do usuário
 puts "Digite um número romano: "
