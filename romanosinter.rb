@@ -1,3 +1,5 @@
+# conforme proposto pelo exercicio, devemos criar um codigo, para converte numeros romanos em inteiros
+# exemplos abaixo estamos usando (class e def)
 class RomanNumerals
   ROMAN_VALUES = {
     'I' => 1,
@@ -28,9 +30,9 @@ class RomanNumerals
 end
 
 # Exemplos de uso
-puts RomanNumerals.roman_to_integer('III')    # Saída: 3
-puts RomanNumerals.roman_to_integer('LVIII')  # Saída: 58
-puts RomanNumerals.roman_to_integer('MCMXCIV')# Saída: 1994
+# puts RomanNumerals.roman_to_integer('III')    # Saída: 3
+# puts RomanNumerals.roman_to_integer('LVIII')  # Saída: 58
+# uts RomanNumerals.roman_to_integer('MCMXCIV') # Saída: 1994
 
 # Entrada do usuário
 puts "Digite um número romano: "
