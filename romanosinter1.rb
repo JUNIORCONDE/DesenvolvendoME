@@ -10,6 +10,7 @@ ROMAN_VALUES = {
 }
 
 # Solicitando entrada do usuário
+puts "Numeros Romanos (I / V / X / L / C / D / M) sempre caixa alta."
 puts "Digite um número romano: "
 s = gets.chomp
 
