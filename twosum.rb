@@ -11,3 +11,21 @@ target = gets.chomp.to_i
 puts "Valor do Alvo #{target}"
 
 # Metodo para encontrar os indices dos dois números que soma ao alvo.
+def two_sum(nums, target)
+  num_to_index = {}
+  nums.each_with_index do |num, i|
+    complement = target - num
+    if num_to_index.key?(complement)
+      return [num_to_index[complement], i]
+    end
+    num_to_index[num] = i
+  end
+  nil
+end
+
+result = two_sum(nums, target)
+if result
+  puts "Índices dos elementos que somam ao alvo: #{result.inspect}"
+else
+  puts "Nenhum par de elementos soma ao alvo."
+end
