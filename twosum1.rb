@@ -25,3 +25,10 @@ puts "Digite os numeros do array, separados por espaços"
   else
     puts "Nenhum par de elementos soma ao alvo."
   end
+
+=begin
+    Esse código realiza a mesma tarefa que o código original com método,
+     mas está totalmente escrito no escopo principal sem utilizar definição de método.
+     Essa abordagem pode ser útil para scripts simples ou aprendizado, mas para projetos maiores e mais complexos,
+     organizar o código em métodos é a prática recomendada.
+=end
