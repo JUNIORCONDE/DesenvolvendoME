@@ -13,12 +13,12 @@ puts "Valor do Alvo #{target}"
 # Metodo para encontrar os indices dos dois números que soma ao alvo.
 def two_sum(nums, target)
  numero = {}
-  nums.each_with_index do |cabra, i|
-    complement = target - cabra
+  nums.each_with_index do |num, i|
+    complement = target - num
     if numero.key?(complement)
       return [numero[complement], i]
     end
-    numero[cabra] = i
+    numero[num] = i
   end
   nil
 end
