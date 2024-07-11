@@ -1,35 +1,38 @@
 class Lasagna
-  EXPECTED_MINUTES_IN_OVEN = 40
+  TEMPO_ESPERADO_NO_FORNO = 40 # Tempo esperado no forno em minutos
 
-  def remaining_minutes_in_oven(actual_minutes_in_oven)
-    EXPECTED_MINUTES_IN_OVEN - actual_minutes_in_oven
+  # Método para calcular o tempo restante no forno
+  def tempo_restante_no_forno(minutos_no_forno)
+    TEMPO_ESPERADO_NO_FORNO - minutos_no_forno
   end
 
-  def preparation_time_in_minutes(number_of_layers)
-    number_of_layers * 2
+  # Método para calcular o tempo de preparação em minutos
+  def tempo_preparo_em_minutos(numero_de_camadas)
+    numero_de_camadas * 2
   end
 
-  def total_time_in_minutes(number_of_layers:, actual_minutes_in_oven:)
-    preparation_time_in_minutes(number_of_layers) + actual_minutes_in_oven
+  # Método para calcular o tempo total de trabalho em minutos
+  def tempo_total_em_minutos(numero_de_camadas:, minutos_no_forno:)
+    tempo_preparo_em_minutos(numero_de_camadas) + minutos_no_forno
   end
 end
 
 # Criação de uma instância da classe Lasagna
-lasagna = Lasagna.new
+lasanha = Lasagna.new
 
 # Entrada de dados pelo usuário
 puts "Quantos minutos a lasanha já ficou no forno?"
-actual_minutes_in_oven = gets.to_i
+minutos_no_forno = gets.to_i
 
 puts "Quantas camadas tem a lasanha?"
-number_of_layers = gets.to_i
+numero_de_camadas = gets.to_i
 
 # Cálculo dos resultados
-remaining_minutes = lasagna.remaining_minutes_in_oven(actual_minutes_in_oven)
-preparation_time = lasagna.preparation_time_in_minutes(number_of_layers)
-total_time = lasagna.total_time_in_minutes(number_of_layers: number_of_layers, actual_minutes_in_oven: actual_minutes_in_oven)
+tempo_restante = lasanha.tempo_restante_no_forno(minutos_no_forno)
+tempo_preparo = lasanha.tempo_preparo_em_minutos(numero_de_camadas)
+tempo_total = lasanha.tempo_total_em_minutos(numero_de_camadas: numero_de_camadas, minutos_no_forno: minutos_no_forno)
 
 # Exibição dos resultados
-puts "Tempo restante no forno: #{remaining_minutes} minutos"
-puts "Tempo de preparação: #{preparation_time} minutos"
-puts "Tempo total de trabalho: #{total_time} minutos"
+puts "Tempo restante no forno: #{tempo_restante} minutos"
+puts "Tempo de preparação: #{tempo_preparo} minutos"
+puts "Tempo total de trabalho: #{tempo_total} minutos"
