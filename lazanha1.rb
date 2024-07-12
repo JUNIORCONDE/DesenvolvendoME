@@ -22,4 +22,4 @@ puts "Minutos no Forno.: #{Minutos_No_Forno}"
 
 puts "Tempo Restante no Forno.: #{Tempo_Restante}"
 
-puts "Tempo de Preparo é de.: #{Tempo_de_Preparo}"
+puts "Tempo de Total de Preparo é de.: #{Tempo_de_Preparo}"
