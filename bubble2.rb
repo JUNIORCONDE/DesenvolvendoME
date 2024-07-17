@@ -1,28 +1,27 @@
-#https://chat.openai.com/share/fb272f8d-9dc5-4b36-a208-78565cdd893b
+=begin
+Exemplo de Bubble Sort com Definição de Função:
+=end
 
 def bubble_sort(array)
-  # Obtem o comprimento do array
   n = array.length
+  loop do
+    swapped = false
 
-  # Percorre o array
-  (0...n).each do |i|
-    # Percorre o array novamente, mas apenas até o último elemento não ordenado
-    (0...(n - i - 1)).each do |j|
-      # Compara elementos adjacentes e troca se estiverem fora de ordem
-      if array[j] > array[j + 1]
-        # Troca de posição dos elementos
-        array[j], array[j + 1] = array[j + 1], array[j]
+    (n-1).times do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i] # Troca os elementos
+        swapped = true
       end
     end
+
+    break unless swapped
   end
 
-  # Retorna o array ordenado
   array
 end
 
 # Exemplo de uso
-arr = [3, 9, 1, 4, 7, 6, 2, 8, 5]
-puts "Array original: #{arr}"
-
-sorted_arr = bubble_sort(arr)
-puts "Array ordenado: #{sorted_arr}"
+array = [64, 34, 25, 12, 22, 11, 90]
+puts "#{array}"
+sorted_array = bubble_sort(array)
+puts "Array ordenado: #{sorted_array}"
