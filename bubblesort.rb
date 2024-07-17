@@ -1,6 +1,6 @@
-# como criar e entender do zer algoritmo Bubble sort
-# Escrevendo o mesmo, sem usar DEFINIÇÂO
-# Exemplo de Bubble Sort Sem Função:
+# vamos criar um array, com entrada do numeros pelo usuários
+
+
 
 array = [64, 34, 25, 12, 22, 11, 90]
 n = array.length
