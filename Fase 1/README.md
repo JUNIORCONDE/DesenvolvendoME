@@ -84,5 +84,5 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](L
 
 ## Autor
 
-- **Junior** - _Desenvolvedor Full Stack_ - [Meu GitHub](https://github.com/JUNIORCONDE)
+- **Junior** - _ Estudande Analise e Desenvolivmento de Sistema_ - [Meu GitHub](https://github.com/JUNIORCONDE)
 - Repositório: [Cadastro de Alunos](https://github.com/JUNIORCONDE/DesenvolvendoME/tree/main/Fase%201)
