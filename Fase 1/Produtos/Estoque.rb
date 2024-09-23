@@ -3,47 +3,106 @@ require 'json'
 class Estoque
   def initialize
     @produtos = []
+    @fornecedores = []
     carregar_produtos
   end
 
-  def adicionar_produto(codigo, descricao, fornecedor, data_compra, valor_compra)
-    produto = {
-      codigo: codigo,
-      descricao: descricao,
-      fornecedor: fornecedor,
-      data_compra: data_compra,
-      valor_compra: valor_compra
-    }
-    @produtos << produto
-    puts "Produto adicionado com sucesso!"
-    salvar_produtos
+  # Menu principal
+  def menu
+    loop do
+      puts "\n==== SISTEMA DE ESTOQUE ===="
+      puts "1 - Cadastro de Produtos"
+      puts "2 - Lista de Produtos"
+      puts "3 - Fornecedores"
+      puts "0 - Sair"
+      print "Escolha uma opção: "
+      opcao = gets.chomp.to_i
+
+      case opcao
+      when 1
+        cadastrar_produto
+      when 2
+        listar_produtos
+      when 3
+        listar_fornecedores
+      when 0
+        puts "Saindo..."
+        break
+      else
+        puts "Opção inválida! Tente novamente."
+      end
+    end
   end
 
+  # Cadastro de Produtos
+  def cadastrar_produto
+    puts "\n==== CADASTRO DE PRODUTO ===="
+    print "Fornecedor: "
+    fornecedor = gets.chomp
+    print "Nota Fiscal: "
+    nota_fiscal = gets.chomp
+    print "Valor: "
+    valor = gets.chomp.to_f
+    print "Data da Compra (YYYY-MM-DD): "
+    data_compra = gets.chomp
+
+    produto = {
+      fornecedor: fornecedor,
+      nota_fiscal: nota_fiscal,
+      valor: valor,
+      data_compra: data_compra
+    }
+
+    @produtos << produto
+    @fornecedores << fornecedor unless @fornecedores.include?(fornecedor)
+    salvar_produtos
+    puts "Produto cadastrado com sucesso!"
+  end
+
+  # Lista de Produtos
   def listar_produtos
-    puts "Produtos em Estoque:"
-    @produtos.each do |produto|
-      puts "Código: #{produto[:codigo]}, Descrição: #{produto[:descricao]}, Fornecedor: #{produto[:fornecedor]}, Data da Compra: #{produto[:data_compra]}, Valor: #{produto[:valor_compra]}"
+    if @produtos.empty?
+      puts "\nNenhum produto cadastrado."
+    else
+      puts "\n==== LISTA DE PRODUTOS ===="
+      @produtos.each_with_index do |produto, index|
+        puts "#{index + 1} - Fornecedor: #{produto[:fornecedor]}, Nota Fiscal: #{produto[:nota_fiscal]}, Valor: #{produto[:valor]}, Data da Compra: #{produto[:data_compra]}"
+      end
+    end
+  end
+
+  # Lista de Fornecedores
+  def listar_fornecedores
+    if @fornecedores.empty?
+      puts "\nNenhum fornecedor cadastrado."
+    else
+      puts "\n==== LISTA DE FORNECEDORES ===="
+      @fornecedores.each_with_index do |fornecedor, index|
+        puts "#{index + 1} - Fornecedor: #{fornecedor}"
+      end
     end
   end
 
   private
 
-  def salvar_produtos
-    File.open("produtos.json", "w") do |f|
-      f.write(JSON.pretty_generate(@produtos))
+  # Carregar produtos do arquivo JSON
+  def carregar_produtos
+    if File.exist?("produtos.json")
+      dados = JSON.parse(File.read("produtos.json"), symbolize_names: true)
+      @produtos = dados[:produtos] || []
+      @fornecedores = dados[:fornecedores] || []
     end
   end
 
-  def carregar_produtos
-    if File.exist?("produtos.json")
-      @produtos = JSON.parse(File.read("produtos.json"), symbolize_names: true)
+  # Salvar produtos no arquivo JSON
+  def salvar_produtos
+    dados = { produtos: @produtos, fornecedores: @fornecedores }
+    File.open("produtos.json", "w") do |f|
+      f.write(JSON.pretty_generate(dados))
     end
   end
 end
 
-# Uso do controle de estoque
+# Executando o sistema
 estoque = Estoque.new
-estoque.adicionar_produto("001", "Produto A", "Fornecedor X", "2024-09-01", 100.00)
-estoque.adicionar_produto("002", "Produto B", "Fornecedor Y", "2024-09-15", 150.00)
-
-estoque.listar_produtos
+estoque.menu

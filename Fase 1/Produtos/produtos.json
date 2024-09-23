@@ -1,0 +1,13 @@
+{
+  "produtos": [
+    {
+      "fornecedor": "JUNIOR CONDE",
+      "nota_fiscal": "10542",
+      "valor": 1250.0,
+      "data_compra": "2024-12-05"
+    }
+  ],
+  "fornecedores": [
+    "JUNIOR CONDE"
+  ]
+}
