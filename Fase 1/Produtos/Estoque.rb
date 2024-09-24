@@ -41,14 +41,17 @@ class Estoque
     fornecedor = gets.chomp
     print "Nota Fiscal: "
     nota_fiscal = gets.chomp
+    print "Produto: "
+    produto = gets.chomp
     print "Valor: "
     valor = gets.chomp.to_f
     print "Data da Compra (YYYY-MM-DD): "
-    data_compra = gets.chomp
+    data_compra = gets.chomps
 
     produto = {
       fornecedor: fornecedor,
       nota_fiscal: nota_fiscal,
+      produto: produto,
       valor: valor,
       data_compra: data_compra
     }
@@ -66,7 +69,7 @@ class Estoque
     else
       puts "\n==== LISTA DE PRODUTOS ===="
       @produtos.each_with_index do |produto, index|
-        puts "#{index + 1} - Fornecedor: #{produto[:fornecedor]}, Nota Fiscal: #{produto[:nota_fiscal]}, Valor: #{produto[:valor]}, Data da Compra: #{produto[:data_compra]}"
+        puts "#{index + 1} - Fornecedor: #{produto[:fornecedor]}, Nota Fiscal: #{produto[:nota_fiscal]}, Produto: #{produto[:produto]}, Valor: #{produto[:valor]}, Data da Compra: #{produto[:data_compra]}"
       end
     end
   end
